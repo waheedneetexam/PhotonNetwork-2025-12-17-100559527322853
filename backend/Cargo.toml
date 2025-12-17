@@ -1,0 +1,21 @@
+[package]
+name = "backend"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+# Note: We removed 'path = "lib.rs"' so it looks in /src/lib.rs by default
+
+[dependencies]
+candid = "0.10"
+ic-cdk = "0.13"
+ic-stable-structures = "0.6"
+serde = "1.0"
+# Feature "serde" is required to enable serialization
+bitcoin = { version = "0.30", features = ["serde"] }
+
+# Add a feature flag for local development
+[features]
+default = []
+local = []
